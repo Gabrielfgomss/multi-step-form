@@ -1,0 +1,26 @@
+[
+    {
+        "path": "/",
+        "alt": "Step 1",
+        "local": "Your Info",
+        "id": 1
+    },
+    {
+        "path": "/plans",
+        "alt": "Step 2",
+        "local": "Select Plan",
+        "id": 2
+    },
+    {
+        "path": "/add-ons",
+        "alt": "Step 3",
+        "local": "Add-ons",
+        "id": 3
+    },
+    {
+        "path": "/summary",
+        "alt":"Step 4",
+        "local": "Summary",
+        "id": 4
+    }
+]

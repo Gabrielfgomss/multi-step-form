@@ -1,0 +1,23 @@
+@import '../../styles/_variables.scss';
+
+.summaryPage {
+    width: 586px;
+    height: 390px;
+    
+    .containerItens{
+        display: flex;
+        flex-wrap: wrap;
+
+        div {
+            flex-basis: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            .planItem {
+                color: white;
+            }
+            
+        }
+    }
+    
+}

@@ -1,0 +1,26 @@
+[
+    {
+        "name": "onlineService",
+        "type": "checkbox",
+        "label": "Online Service",
+        "text": "Acess to multiplayer games",
+        "valueMonth": "+$1/mo",
+        "valueYear": "+$10/yr"
+    },
+    {
+        "name": "largeStorage",
+        "type": "checkbox",
+        "label": "Large storage",
+        "text": "Extra 1TB of cloud save",
+        "valueMonth": "+$2/mo",
+        "valueYear": "+$20/yr"
+    },
+    {
+        "name": "customProfile",
+        "type": "checkbox",
+        "label": "Customizable profile",
+        "text": "Custom theme on your profile",
+        "valueMonth": "+$2/mo",
+        "valueYear": "+$20/yr"
+    }
+]

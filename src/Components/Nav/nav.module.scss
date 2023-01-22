@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+
+.sideBar {
+    background-image: url('../../../public/assets/images/bg-sidebar-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    flex-basis: 274px;
+    .container {
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        font-family: $font-regular;
+        color: $white;
+        text-transform: uppercase;
+        .itenContainer {
+            display: flex;
+            margin-bottom: 32px;
+            align-items: center;
+            gap: 15px;
+
+            .icon {
+                font-size: 25px;
+                color: $white;
+                text-decoration: none;
+            }
+
+            .description {
+                p {
+                    margin-bottom: 5px;
+                }
+                :first-child {
+                    color: $grey;
+                    font-size: 14px;
+                }
+                :last-child {
+                    font-family: $font-bold;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

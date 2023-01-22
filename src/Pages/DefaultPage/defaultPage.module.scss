@@ -1,0 +1,36 @@
+@import '../../styles/_variables.scss';
+
+.mainContainer {
+    height: 600px;
+    width: 940px;
+    margin: auto;
+
+    .contentContainer {
+        display: flex;
+        justify-content: center;
+        padding-top: 15px;
+        height: 568px;
+        
+        .contentForm {
+            flex-basis: calc(940px - 274px);
+
+            .mainContent {
+                padding: 45px 0px 0px 80px;
+                height: 478px;
+                width: 586px;
+                h1 {
+                    font-size: 32px;
+                    font-family: $font-bold;
+                    color: $dark-blue;
+                    margin-bottom: 12px;
+                }
+
+                .subTitle {
+                    color: $grey;
+                    font-family: $font-regular;
+                    margin-bottom: 24px;
+                }
+            }
+        }
+    }
+}

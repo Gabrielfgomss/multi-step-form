@@ -1,0 +1,75 @@
+@import '../../styles/_variables.scss';
+
+.userForm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    .containerUser{ 
+        flex-basis: 100%;
+        label {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .textContainer {
+                display: flex;
+                order: 1;
+                flex-grow: 1;
+
+                .title {
+                    color: $dark-blue;
+                    font-family: $font-regular;
+                    margin: 10px 0px;
+                    flex-grow: 1;
+                }
+
+                span {
+                    text-align: end;
+                    font-family: $font-bold;
+                    color: red;
+                    margin: 10px 0px;
+                    
+
+                }
+            }
+
+            
+            input[type='text'] {
+                order: 2;
+                border: 1px solid $white;
+                color: $dark-blue;
+                box-sizing: border-box;
+                width: 100%;
+                padding: 15px;
+                border-radius: 10px;
+                
+                &:hover {
+                    cursor: pointer;
+                    border: 1px solid $dark-blue;
+                }
+                
+                &:focus {
+                    outline: none;
+                }
+            }
+            .error {
+                border: 1px solid red;
+            }
+        }
+    }
+    .oneButton {
+        text-align: end;
+        flex-basis: 100%;
+        button[type='submit'] {
+            font-family: $font-medium;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            background-color: $dark-blue;
+            color: $white;
+            border: none;
+        }
+    }
+}

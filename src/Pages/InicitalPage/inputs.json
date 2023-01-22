@@ -1,0 +1,20 @@
+[
+    {
+        "type": "text",
+        "name": "name",
+        "label": "Name",
+        "placeholder": "e.g. Stephen King"
+    },
+    {
+        "type": "text",
+        "label": "Email Adress",
+        "name": "email",
+        "placeholder": "e.g stephenking@lorem.com"
+    },
+    {
+        "type": "text",
+        "label": "Phone Number",
+        "name": "phoneNumber",
+        "placeholder": "e.g +1 234 567 890"
+    }
+]
