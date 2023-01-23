@@ -17,6 +17,7 @@
             grid-template-columns: 1fr 1fr;
             align-items: center;
             color: #67758D;
+            font-family: $font-regular;
 
             *:nth-child(2) {
                 text-align: end;
@@ -48,6 +49,20 @@
             border-bottom: 1px solid #E8E8FC;
         }
     }
+    .containerResult {
+        display: flex;
+        justify-content: space-between;
+        padding: 24px;
+        flex-basis: 100%;
+        color: #67758D;
+        font-family: $font-regular;
+        
+        p:nth-child(2) {
+            font-size: 18px;
+            font-family: $font-bold;
+            color: #4D46D2;
+        }
+    }
     
     div:nth-child(3) {
         max-height: 51px;
@@ -62,7 +77,7 @@
             font-size: 18px;
             padding: 15px 25px;
             border-radius: 10px;
-            background-color: $dark-blue;
+            background-color: #493EFE;
             color: $white;
             border: none;
         }
@@ -79,11 +94,5 @@
                 color: $dark-blue;
             }
         }
-    }
-    .containerResult {
-        display: flex;
-        justify-content: space-between;
-        padding: 24px;
-        flex-basis: 100%;
     }
 }

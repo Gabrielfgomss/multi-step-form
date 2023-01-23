@@ -12,7 +12,7 @@ export default function SummaryPage() {
             <div className={styles.summaryPage}>
                 <div className={styles.containerItens}>
                     <div className={styles.contentSidebar}>
-                        <p className={styles.sidebarTitle}>Advanced(Montly)</p>
+                        <p className={styles.sidebarTitle}>Advanced (Montly)</p>
                         <p className={styles.sidebarValue}>$9/mo</p>
                         <a>Change</a>
                     </div>
@@ -30,7 +30,7 @@ export default function SummaryPage() {
                     </div>
                 </div>
                 <div className={styles.containerResult}>
-                    <p>Total(per year)</p>
+                    <p>Total (per year)</p>
                     <p>$120/yr</p>
                 </div>
                 <div className={styles.twoButtons}>
