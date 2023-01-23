@@ -3,21 +3,87 @@
 .summaryPage {
     width: 586px;
     height: 390px;
-    
-    .containerItens{
-        display: flex;
-        flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 
-        div {
-            flex-basis: 100%;
+    .containerItens {
+        padding: 24px;
+        background-color: #F8F9FE;
+        flex-basis: 100%;
+
+        .contentSidebar {
             display: grid;
+            padding-top: 25px;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            .planItem {
-                color: white;
+            color: #67758D;
+
+            *:nth-child(2) {
+                text-align: end;
+                grid-row: span 2;
+                font-size: 16px;
+                color: $dark-blue;
+                font-family: $font-regular;
+            }
+            .sidebarTitle {
+                font-size: 18px;
+                font-family: $font-medium;
+                color: $dark-blue;
+                margin-bottom: 10px;
+            }
+            .sidebarValue {
+                font-size: 18px;
+                font-family: $font-bold;
+                color: $dark-blue;
+                margin-bottom: 10px;
+            }
+            a {
+                text-decoration: underline;
+                font-family: $font-regular;
             }
             
         }
+        div:nth-child(1) {
+            padding: 0 0px 17px 0px;
+            border-bottom: 1px solid #E8E8FC;
+        }
     }
     
+    div:nth-child(3) {
+        max-height: 51px;
+        align-self: end;
+        display: flex;
+        justify-content: space-between;
+        flex-basis: 100%;
+
+        button[type=submit] {
+            font-family: $font-medium;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            background-color: $dark-blue;
+            color: $white;
+            border: none;
+        }
+
+        button[type=button] {
+            font-family: $font-medium;
+            cursor: pointer;
+            font-size: 18px;
+            border: none;
+            background-color: white;
+            color: $grey;
+
+            &:hover {
+                color: $dark-blue;
+            }
+        }
+    }
+    .containerResult {
+        display: flex;
+        justify-content: space-between;
+        padding: 24px;
+        flex-basis: 100%;
+    }
 }

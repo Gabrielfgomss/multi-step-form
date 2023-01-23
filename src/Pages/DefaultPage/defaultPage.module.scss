@@ -18,17 +18,23 @@
                 padding: 45px 0px 0px 80px;
                 height: 478px;
                 width: 586px;
+                display: flex;
+                flex-direction: column;
+                
                 h1 {
                     font-size: 32px;
                     font-family: $font-bold;
                     color: $dark-blue;
                     margin-bottom: 12px;
                 }
-
+                
                 .subTitle {
                     color: $grey;
                     font-family: $font-regular;
                     margin-bottom: 24px;
+                }
+                form:nth-child(3) {
+                    flex-basis: 100%;
                 }
             }
         }

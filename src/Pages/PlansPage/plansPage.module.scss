@@ -4,61 +4,70 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    row-gap: 48px;
-    .containerPlan {
-        
-        label {
-            .checkboxInner {
-                display: flex;
-                position: relative;
-                flex-direction: column;
-                width: 155px;
-                height: 175px;
-                margin: 10px;
-                border: 1px solid $white;
-                box-sizing: border-box;
-                border-radius: 10px;
-                padding: 15px;
-                cursor: pointer;
-            }
+    gap: 70px;
+    
+    section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+        max-height: 296px;
 
-            img {
-                margin-bottom: 45px;
-                order: 1;
-                cursor: pointer;
-                width: 50px;
-                height: 50px;
-            }
+        .containerPlan {
 
-            .title {
-                font-size: 18px;
-                font-family: $font-medium;
-                color: $dark-blue;
-                margin-bottom: 10px;
-                order: 2;
-            }
-
-            p {
-                font-family: $font-regular;
-                color: $grey;
-                order: 3;
-            }
-
-            input[type='checkbox'] {
-                position: absolute;
-                top: 0;
-                right: 0;
-                z-index: 1;
-                opacity: 0;
-
-                &:hover+.checkboxInner {
-                    border: 1px solid $dark-blue;
+            label {
+                
+                .checkboxInner {
+                    display: flex;
+                    position: relative;
+                    flex-direction: column;
+                    width: 155px;
+                    height: 175px;
+                    border: 1px solid $white;
+                    box-sizing: border-box;
+                    border-radius: 10px;
+                    padding: 15px;
+                    cursor: pointer;
                 }
 
-                &:checked+.checkboxInner {
-                    background-color: #F8F9FE;
-                    border: 1px solid $dark-blue;
+                img {
+                    margin-bottom: 45px;
+                    order: 1;
+                    cursor: pointer;
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .title {
+                    font-size: 18px;
+                    font-family: $font-medium;
+                    color: $dark-blue;
+                    margin-bottom: 10px;
+                    order: 2;
+                }
+
+                p {
+                    font-family: $font-regular;
+                    color: $grey;
+                    order: 3;
+                }
+
+                input[type='checkbox'] {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    z-index: 1;
+                    opacity: 0;
+
+                    &:hover+.checkboxInner {
+                        border: 1px solid $dark-blue;
+                    }
+
+                    &:checked+.checkboxInner {
+                        background-color: #F8F9FE;
+                        border: 1px solid $dark-blue;
+                    }
                 }
             }
         }
@@ -67,10 +76,11 @@
     .selectorValue {
         display: flex;
         flex-basis: 100%;
-        align-items: baseline;
+        align-items: center;
         justify-content: center;
         padding: 5px 0px;
         background-color: #F8F9FE;
+
         p {
             font-family: $font-medium;
             font-size: 16px;
@@ -79,11 +89,14 @@
     }
 
 }
+
 .twoButtons {
     display: flex;
     justify-content: space-between;
     flex-basis: 100%;
-    button[type='submit'] {
+    max-height: 51px;
+    align-self: end;
+    button[type=submit] {
         font-family: $font-medium;
         cursor: pointer;
         font-size: 18px;
@@ -93,15 +106,17 @@
         color: $white;
         border: none;
     }
-    button[type='button'] {
+
+    button[type=button] {
         font-family: $font-medium;
         cursor: pointer;
         font-size: 18px;
         border: none;
         background-color: white;
         color: $grey;
-           &:hover {
+
+        &:hover {
             color: $dark-blue;
-            }            
+        }
     }
 }

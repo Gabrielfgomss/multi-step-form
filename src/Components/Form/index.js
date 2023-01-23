@@ -8,7 +8,7 @@ import InputData from 'Components/InputData';
 export default function FormInput({ to, inputs, styles }) {
 
     let location = useLocation();
-    
+
     let navigate = useNavigate();
 
     const navigateTo = (event) => {
@@ -17,10 +17,10 @@ export default function FormInput({ to, inputs, styles }) {
     }
 
     const initialValues = {
-        
+
     }
-    
-    inputs.map((input) =>  {return(initialValues[input.name] = '')})
+
+    inputs.map((input) => { return (initialValues[input.name] = '') })
 
     // const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
@@ -35,54 +35,56 @@ export default function FormInput({ to, inputs, styles }) {
         console.log(values)
     }
 
-    return (  
+    return (
         <Formik
             initialValues={initialValues}
             //validationSchema={location.pathname === '/' ? validationSchema : null}
             onSubmit={onSubmit}
-            validateOnBlur={false}
             validateOnChange={false}>
             {props => {
                 console.log(props)
                 return (
-                <Form
-                    className={
-                        `${styles.userForm}
+                    <Form
+                        className={
+                            `${styles.userForm}
                          ${styles.plansForm}
                          ${styles.addsForm}`}>
-                    {inputs.map(input => (
-                        <div
-                            key={input.label}
-                            className={`
+                        <section>
+                            {inputs.map(input => (
+                                <div
+                                    key={input.label}
+                                    className={`
                                 ${styles.containerUser}
                                 ${styles.containerPlan}
                                 ${styles.containerAdds}`}>
-                            <InputData
-                                inputSelect={props.values.yearMonth}
-                                inputValue={props.values[input.name]}
-                                inputError={props.errors[input.name]}
-                                inputTouched={props.touched[input.name]}
-                                inputData={input}
-                                styles={styles}
-                                />
-                        </div>)
-                    )}
-                    {location.pathname === '/plans' ? 
-                        <div className={`${styles.selectorValue}`}>
-                            <p>Monthly</p>
-                            {initialValues['yearMonth'] = false}
-                            <Field label="yearMonth" name="yearMonth" component={Switch} type='checkbox' />
-                            <p>Yearly</p>
-                        </div> 
-                    : null}
-                    <div className={`${styles.twoButtons} ${styles.oneButton}`}>
-                        {location.pathname !== '/' ? 
-                            <button onClick={navigateTo} type="button">Go Back</button>
-                            : null}
-                        <button type="submit">Next Step</button>
-                    </div>
-                </Form>)}}
+                                    <InputData
+                                        inputSelect={props.values.yearMonth}
+                                        inputValue={props.values[input.name]}
+                                        inputError={props.errors[input.name]}
+                                        inputTouched={props.touched[input.name]}
+                                        inputData={input}
+                                        styles={styles}
+                                    />
+                                </div>)
+                            )}
+                            {location.pathname === '/plans' ?
+                                <div className={`${styles.selectorValue}`}>
+                                    <p>Monthly</p>
+                                    {initialValues['yearMonth'] = false}
+                                    <Field label="yearMonth" name="yearMonth" component={Switch} type='checkbox' />
+                                    <p>Yearly</p>
+                                </div>
+                                : null}
+                        </section>
+                        <div className={`${styles.twoButtons} ${styles.oneButton}`}>
+                            {location.pathname !== '/' ?
+                                <button onClick={navigateTo} type="button">Go Back</button>
+                                : null}
+                            <button type="submit">Next Step</button>
+                        </div>
+                    </Form>)
+            }}
         </Formik>
-        
+
     )
 }
