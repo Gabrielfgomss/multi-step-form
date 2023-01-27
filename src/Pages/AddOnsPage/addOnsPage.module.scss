@@ -1,109 +1,69 @@
 @import '../../styles/_variables.scss';
 
-.addsForm {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 
-    section {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        max-height: 296px;
+.containerAdds {
+    flex-basis: 100%;
 
-        .containerAdds {
-            flex-basis: 100%;
+    label {
+        position: relative;
 
-            label {
-                position: relative;
-
-                .checkboxInner {
-                    height: 90px;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    align-items: center;
-                    border: 1px solid $white;
-                    box-sizing: border-box;
-                    border-radius: 10px;
-                    padding: 15px;
-                    padding-left: 100px;
-                    cursor: pointer;
-                }
-
-                .title {
-                    font-family: $font-bold;
-                    font-size: 18px;
-                    color: $dark-blue;
-                    grid-column: 1;
-                    grid-row: 1;
-                }
-
-                .subTitle {
-                    font-family: $font-regular;
-                    font-size: 16px;
-                    color: $grey;
-                    grid-column: 1;
-                    grid-row: 2;
-                }
-
-                .valueMonth {
-                    font-family: $font-medium;
-                    font-size: 16px;
-                    color: #A59CFF;
-                    grid-row: span 2;
-                    text-align: end;
-                }
-
-                input[type='checkbox'] {
-                    position: absolute;
-                    top: 36px;
-                    z-index: 1;
-                    opacity: 1;
-                    -webkit-transform: scale(2);
-                    width: 100px;
-
-                    &:hover+.checkboxInner {
-                        border: 1px solid $dark-blue;
-                    }
-
-                    &:checked+.checkboxInner {
-                        background-color: #F8F9FE;
-                        border: 1px solid $dark-blue;
-                    }
-                }
-            }
-        }
-    }
-
-    .twoButtons {
-        display: flex;
-        justify-content: space-between;
-        flex-basis: 100%;
-        max-height  : 51px;
-        align-self: end;
-
-        button[type=submit] {
-            font-family: $font-medium;
-            cursor: pointer;
-            font-size: 18px;
-            padding: 15px 25px;
+        .checkboxInner {
+            height: 90px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            border: 1px solid $white;
+            box-sizing: border-box;
             border-radius: 10px;
-            background-color: $dark-blue;
-            color: $white;
-            border: none;
+            padding: 15px;
+            padding-left: 100px;
+            cursor: pointer;
         }
 
-        button[type=button] {
-            font-family: $font-medium;
-            cursor: pointer;
+        .title {
+            font-family: $font-bold;
             font-size: 18px;
-            border: none;
-            background-color: white;
-            color: $grey;
+            color: $dark-blue;
+            grid-column: 1;
+            grid-row: 1;
+        }
 
-            &:hover {
-                color: $dark-blue;
+        .subTitle {
+            font-family: $font-regular;
+            font-size: 16px;
+            color: $grey;
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .valueMonth {
+            font-family: $font-medium;
+            font-size: 16px;
+            color: #A59CFF;
+            grid-row: span 2;
+            text-align: end;
+        }
+
+        input[type='checkbox'] {
+            position: absolute;
+            top: 36px;
+            z-index: 1;
+            opacity: 1;
+            -webkit-transform: scale(2);
+            width: 100px;
+
+            &:hover+.checkboxInner {
+                border: 1px solid $dark-blue;
+            }
+
+            &:checked+.checkboxInner {
+                background-color: #F8F9FE;
+                border: 1px solid $dark-blue;
             }
         }
     }
+}
+
+.containerAdds:nth-child(2n) {
+    margin: 12px 0px;
 }

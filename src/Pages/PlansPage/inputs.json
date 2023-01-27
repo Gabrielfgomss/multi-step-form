@@ -2,24 +2,24 @@
     {
         "icon": "/assets/images/icon-arcade.svg",
         "label": "Arcade",
-        "name": "arcade",
-        "type": "checkbox",
+        "name": "plan",
+        "type": "radio",
         "valueMonth": "$9/mo",
         "valueYear": "$90/yr"
     },
     {
         "icon": "/assets/images/icon-advanced.svg",
         "label": "Advanced",
-        "name": "advanced",
-        "type": "checkbox",
+        "name": "plan",
+        "type": "radio",
         "valueMonth": "$12/mo",
         "valueYear": "$120/yr"
     },
     {
         "icon": "/assets/images/icon-pro.svg",
         "label": "Pro",
-        "name": "pro",
-        "type": "checkbox",
+        "name": "plan",
+        "type": "radio",
         "valueMonth": "$15/mo",
         "valueYear": "$150/yr"
     }

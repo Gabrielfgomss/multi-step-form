@@ -1,9 +1,16 @@
 import DefaultPage from 'Pages/DefaultPage';
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './summaryPage.module.scss'
 
 export default function SummaryPage() {
 
+    const navigate = useNavigate();
+
+    const navegateTo = (event) => {
+        event.preventDefault()
+        navigate('/plans')
+    }
 
     return (
         <DefaultPage
@@ -14,7 +21,7 @@ export default function SummaryPage() {
                     <div className={styles.contentSidebar}>
                         <p className={styles.sidebarTitle}>Advanced (Montly)</p>
                         <p className={styles.sidebarValue}>$9/mo</p>
-                        <a>Change</a>
+                        <Link onClick={navegateTo}>Change</Link>
                     </div>
                     <div className={styles.contentSidebar}>
                         <p>Online service</p>

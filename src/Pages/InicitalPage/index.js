@@ -8,10 +8,13 @@ import FormInput from 'Components/Form';
 export default function InicialPage({ to }) {
 
     return (
-        <DefaultPage
-            title='Personal info'
-            paragraph='Please provide your name, email address, and phone number.' type={'text'}>
-            <FormInput to={to} inputs={inputs} styles={styles}/>
+        <DefaultPage>
+            <FormInput
+                to={to} 
+                inputs={inputs} 
+                stylesInput={styles} 
+                title='Personal info'
+                paragraph='Please provide your name, email address, and phone number.'/>
         </DefaultPage>
     )
 }

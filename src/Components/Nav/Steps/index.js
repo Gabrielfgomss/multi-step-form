@@ -17,7 +17,7 @@ export default function Steps({ icon, styles }) {
           const border = isActive ? '1px solid transparent':'1px solid white';
           return (
             <>
-              <Avatar sx={{backgroundColor: `${bgColor}`, border:`${border}`, color:`${color}`, fontSize: '16px'}}>{icon.id}</Avatar>
+              <Avatar sx={{backgroundColor: `${bgColor}`, border:`${border}`, color:`${color}`, fontSize: '16px', width: 30, height: 30, fontWeight: 800}}>{icon.id}</Avatar>
             </>
           )
         }}>

@@ -10,10 +10,10 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<InicialPage  to="plans"/>} />
-          <Route path="plans" element={<PlanPage to="/add-ons" />}/>
-          <Route path="add-ons" element={<AddOnsPage to="/summary" />}/>
-          <Route path="summary" element={<SummaryPage/>}/>
+          <Route exact path="/" element={<InicialPage  to="plans"/>} />
+          <Route exact path="plans" element={<PlanPage to="/add-ons" />}/>
+          <Route exact path="add-ons" element={<AddOnsPage to="/summary" />}/>
+          <Route exact path="summary" element={<SummaryPage/>}/>
         </Routes>
       </BrowserRouter>
   );

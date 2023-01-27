@@ -1,40 +1,37 @@
 @import '../../styles/_variables.scss';
 
 .mainContainer {
-    height: 600px;
     width: 940px;
     margin: auto;
 
     .contentContainer {
         display: flex;
-        justify-content: center;
         padding-top: 15px;
         height: 568px;
-        
-        .contentForm {
-            flex-basis: calc(940px - 274px);
+    }
+}
 
-            .mainContent {
-                padding: 45px 0px 0px 80px;
-                height: 478px;
-                width: 586px;
-                display: flex;
-                flex-direction: column;
+@media (max-width: 375px) {
+    .mainContainer {
+        height: 100vh;
+        width: 100vw;
+        background-color: #ECF3FD;
+        .contentContainer {
+            background-image: url('../../../public/assets/images/bg-sidebar-mobile.svg');
+            background-repeat: no-repeat;
+            background-size: 375px 172px;
+            display: block;
+            padding-top: 0px;
+            height: auto;
+            .contentForm {
+                padding: 30px 25px;
+                width: 80%;
+                margin: auto;
                 
-                h1 {
-                    font-size: 32px;
-                    font-family: $font-bold;
-                    color: $dark-blue;
-                    margin-bottom: 12px;
-                }
-                
-                .subTitle {
-                    color: $grey;
-                    font-family: $font-regular;
-                    margin-bottom: 24px;
-                }
-                form:nth-child(3) {
-                    flex-basis: 100%;
+                .mainContent {
+                    padding: 0px;
+                    width: auto;
+                    
                 }
             }
         }

@@ -1,0 +1,85 @@
+@import '../../styles/_variables.scss';
+
+form {
+    flex-basis: calc(940px - 274px);
+    justify-content: end;
+    display: flex;
+    flex-wrap: wrap;
+
+    section:nth-child(1) {
+        margin: 15px;
+        padding: 25px;
+        background-color: #FFFFFF;
+        border-radius: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+
+        h1 {
+            flex-basis: 100%;
+            font-size: 32px;
+            font-family: $font-bold;
+            color: $dark-blue;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            flex-basis: 100%;
+            color: $grey;
+            font-family: $font-regular;
+            margin-bottom: 24px;
+        }
+
+    }
+
+    section:nth-child(2n) {
+        height: 51px;
+        flex-basis: 100%;
+        align-self: end;
+        text-align: end;
+        padding: 0px 40px;
+        display: flex;
+        justify-content: space-between;
+
+        button[type=submit] {
+            font-family: $font-medium;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            background-color: $dark-blue;
+            color: $white;
+            border: none;
+        }
+
+        button[type=button] {
+            font-family: $font-medium;
+            cursor: pointer;
+            font-size: 18px;
+            border: none;
+            background-color: white;
+            color: $grey;
+
+            &:hover {
+                color: $dark-blue;
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    form {
+        justify-content: end;
+        display: flex;
+        height: 80vh;
+        flex-wrap: wrap;
+
+        section:nth-child(2n) {
+            background-color: #FFFFFF;
+            flex-basis: 100%;
+            align-self: end;
+            height: 51px;
+        }
+    }
+}

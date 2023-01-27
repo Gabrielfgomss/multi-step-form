@@ -3,9 +3,10 @@ import { Formik, Form, Field } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Switch } from 'formik-material-ui'
 import InputData from 'Components/InputData';
+import styles from './formItem.module.scss'
 // import * as Yup from 'yup'
 
-export default function FormInput({ to, inputs, styles }) {
+export default function FormInput({ title, paragraph, to, inputs, stylesInput }) {
 
     let location = useLocation();
 
@@ -15,73 +16,63 @@ export default function FormInput({ to, inputs, styles }) {
         event.preventDefault()
         navigate(-1)
     }
-
+    
+    const onSubmit = values => {
+        navigate(to);
+        console.log(values)
+    }
+    
     const initialValues = {
 
     }
 
     inputs.map((input) => { return (initialValues[input.name] = '') })
 
-    // const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-
-    // const validationSchema = Yup.object({
-    //     name: Yup.string().required('This is required'),
-    //     email: Yup.string().email('Invalid email format').required('This is required'),
-    //     phoneNumber: Yup.string().matches(phoneRegExp, 'Phone number is not valid').required('This is required')
-    // })
-
-    const onSubmit = values => {
-        navigate(to);
-        console.log(values)
-    }
-
     return (
         <Formik
             initialValues={initialValues}
-            //validationSchema={location.pathname === '/' ? validationSchema : null}
-            onSubmit={onSubmit}
-            validateOnChange={false}>
+            onSubmit={onSubmit}>
             {props => {
                 console.log(props)
                 return (
-                    <Form
-                        className={
-                            `${styles.userForm}
-                         ${styles.plansForm}
-                         ${styles.addsForm}`}>
+                    <Form>
                         <section>
+                            <h1>{title}</h1>
+                            <p className={styles.subtitle}>{paragraph}</p>
                             {inputs.map(input => (
                                 <div
                                     key={input.label}
                                     className={`
-                                ${styles.containerUser}
-                                ${styles.containerPlan}
-                                ${styles.containerAdds}`}>
+                                    ${stylesInput.containerUser}
+                                    ${stylesInput.containerPlan}
+                                    ${stylesInput.containerAdds}`}>
                                     <InputData
                                         inputSelect={props.values.yearMonth}
                                         inputValue={props.values[input.name]}
                                         inputError={props.errors[input.name]}
                                         inputTouched={props.touched[input.name]}
                                         inputData={input}
-                                        styles={styles}
+                                        styles={stylesInput}
                                     />
                                 </div>)
                             )}
                             {location.pathname === '/plans' ?
-                                <div className={`${styles.selectorValue}`}>
+                                <div className={`${stylesInput.selectorValue}`}>
                                     <p>Monthly</p>
                                     {initialValues['yearMonth'] = false}
                                     <Field label="yearMonth" name="yearMonth" component={Switch} type='checkbox' />
                                     <p>Yearly</p>
                                 </div>
-                                : null}
+                                : null
+                            }
                         </section>
-                        <div className={`${styles.twoButtons} ${styles.oneButton}`}>
+                        <section>
                             {location.pathname !== '/' ?
                                 <button onClick={navigateTo} type="button">Go Back</button>
-                                : null}
+                                : null
+                            }
                             <button type="submit">Next Step</button>
-                        </div>
+                        </section>
                     </Form>)
             }}
         </Formik>

@@ -3,7 +3,7 @@
 .sideBar {
     background-image: url('../../../public/assets/images/bg-sidebar-desktop.svg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 274px 568px;
     flex-basis: 274px;
     .container {
         padding: 32px;
@@ -35,6 +35,22 @@
                 :last-child {
                     font-family: $font-bold;
                     font-size: 16px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 375px) {
+    .sideBar {
+        background-image: none;
+        .container {
+            justify-content: space-evenly;
+            flex-direction: row;
+            padding: 25px 0px;
+            .itenContainer {
+                margin: 0px;
+                .description {
+                    display: none;
                 }
             }
         }
