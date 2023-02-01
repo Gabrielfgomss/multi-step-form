@@ -3,18 +3,21 @@
         "type": "text",
         "label": "Name",
         "name": "name",
-        "placeholder": "e.g. Stephen King"
+        "placeholder": "e.g. Stephen King",
+        "id": "textName"
     },
     {
         "type": "text",
         "label": "Email Adress",
         "name": "email",
-        "placeholder": "e.g stephenking@lorem.com"
+        "placeholder": "e.g stephenking@lorem.com",
+        "id": "textEmail"
     },
     {
         "type": "text",
         "label": "Phone Number",
         "name": "phoneNumber",
-        "placeholder": "e.g +1 234 567 890"
+        "placeholder": "e.g +1 234 567 890",
+        "id": "textPhone"
     }
 ]

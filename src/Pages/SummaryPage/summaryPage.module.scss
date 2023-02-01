@@ -1,88 +1,125 @@
 @import '../../styles/_variables.scss';
 
-.summaryPage {
+
+.summaryContainer {
+    flex-basis: calc(940px - 274px);
     display: flex;
     flex-wrap: wrap;
-    flex-basis: calc(940px - 274px);
 
-    .containerItens {
-        margin: 50px;
-        background-color: #F8F9FE;
-        flex-basis: 100%;
+    .summaryPage {
+        flex-basis: 80%;
+        margin: auto;
+        display: grid;
+        row-gap: 20px;
 
-        .contentSidebar {
-            display: grid;
-            margin: 25px;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            color: #67758D;
-            font-family: $font-regular;
-            
-            *:nth-child(2) {
-                text-align: end;
-                grid-row: span 2;
-                font-size: 16px;
-                color: $dark-blue;
-                font-family: $font-regular;
-            }
-            .sidebarTitle {
-                font-size: 18px;
-                font-family: $font-medium;
-                color: $dark-blue;
-                margin-bottom: 10px;
-            }
-            .sidebarValue {
-                font-size: 18px;
-                font-family: $font-bold;
-                color: $dark-blue;
-                margin-bottom: 10px;
-            }
-            a {
-                text-decoration: underline;
-                font-family: $font-regular;
-                color: $grey;
-            }
-            
-        }
-
-        div:nth-child(1) {
-            padding-bottom: 25px;
-            border-bottom: 1px solid #E8E8FC;
-        }
-    }
-
-    .containerResult {
-        display: flex;
-        justify-content: space-between;
-        margin: 0px 75px;
-        flex-basis: 100%;
-        color: #67758D;
-        font-family: $font-regular;
-        
-        p:nth-child(2) {
-            font-size: 18px;
+        h1:nth-child(1) {
+            font-size: 32px;
+            color: $marine-blue;
             font-family: $font-bold;
-            color: #4D46D2;
+            grid-column: span 2;
         }
+
+        .containerItens {
+            background-color: $magnolia;
+            grid-column: span 2;
+
+            .contentSidebar {
+                display: grid;
+                margin: 25px;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                color: $cool-grey;
+                font-family: $font-regular;
+
+
+                *:nth-child(1) {
+                    color: $cool-grey;
+                    font-size: 14px;
+                }
+
+                *:nth-child(2) {
+                    text-align: end;
+                    grid-row: span 2;
+                    font-size: 14px;
+                    color: $marine-blue;
+                    font-family: $font-medium;
+                }
+
+                .sidebarTitle {
+                    font-size: 18px;
+                    font-family: $font-medium;
+                    color: $marine-blue;
+                    margin-bottom: 10px;
+                }
+
+                .sidebarValue {
+                    font-size: 18px;
+                    font-family: $font-bold;
+                    color: $marine-blue;
+                    margin-bottom: 10px;
+                }
+
+                a {
+                    text-decoration: underline;
+                    font-family: $font-regular;
+                    color: $cool-grey;
+
+                    &:hover {
+                        font-family: $font-medium;
+                        color: $purplish-blue;
+                    }
+                }
+            }
+
+            div:nth-child(1) {
+                padding-bottom: 25px;
+                border-bottom: 1px solid $light-grey;
+            }
+        }
+
+        .subTitle {
+            grid-column: span 2;
+            font-size: 16px;
+            color: $cool-grey;
+            font-family: $font-regular;
+
+        }
+
+        :nth-child(4) {
+            color: $cool-grey;
+            margin: 0px 25px;
+        }
+
+        :nth-child(5) {
+            color: $purplish-blue;
+            font-family: $font-bold;
+            font-size: 24px;
+            margin: 0px 25px;
+            text-align: end;
+        }
+
     }
 
-    div:nth-child(3) {
-        margin: 0px 75px;
-        flex-basis: 100%;
-        max-height: 51px;
-        flex-basis: 100%;
+    .twoButtons {
+        flex-basis: 80%;
+        margin: 0px auto;
         display: flex;
         justify-content: space-between;
-        
+        align-self: end;
+
         button[type=submit] {
             font-family: $font-medium;
             cursor: pointer;
             font-size: 18px;
             padding: 15px 25px;
             border-radius: 10px;
-            background-color: $dark-blue;
+            background-color: $purplish-blue;
             color: $white;
             border: none;
+
+            &:hover {
+                background-color: $light-blue;
+            }
         }
 
         button[type=button] {
@@ -91,12 +128,30 @@
             font-size: 18px;
             border: none;
             background-color: white;
-            color: $grey;
+            color: $cool-grey;
             padding: 0px;
 
             &:hover {
-                color: $dark-blue;
+                color: $marine-blue;
             }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .summaryContainer {
+        height: 80vh;
+        .summaryPage {
+            background-color: #FFFFFF;
+            border-radius: 24px;
+            padding: 30px 20px;
+        }
+        
+        .twoButtons {
+            flex-basis: 100%;
+            background-color: #FFFFFF;
+            padding: 0px 17.5px;
+            margin: 0px;
         }
     }
 }

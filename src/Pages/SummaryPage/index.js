@@ -7,21 +7,20 @@ export default function SummaryPage() {
 
     const navigate = useNavigate();
 
-    const navegateTo = (event) => {
-        event.preventDefault()
-        navigate('/plans')
+    const navegateTo = (location) => {
+        navigate(-1)
     }
 
     return (
-        <DefaultPage
-            title='Finishing up'
-            paragraph='Double-check everything look OK before confirming'>
+        <div className={styles.summaryContainer}>
             <div className={styles.summaryPage}>
+                <h1>Finishing up</h1>
+                <p className={styles.subTitle}>Double-check everything looks OK before confirming</p>
                 <div className={styles.containerItens}>
                     <div className={styles.contentSidebar}>
                         <p className={styles.sidebarTitle}>Advanced (Montly)</p>
                         <p className={styles.sidebarValue}>$9/mo</p>
-                        <Link onClick={navegateTo}>Change</Link>
+                        <Link onClick={navegateTo('/plans')}>Change</Link>
                     </div>
                     <div className={styles.contentSidebar}>
                         <p>Online service</p>
@@ -36,15 +35,14 @@ export default function SummaryPage() {
                         <p>+$2/mo</p>
                     </div>
                 </div>
-                <div className={styles.containerResult}>
-                    <p>Total (per year)</p>
-                    <p>$120/yr</p>
-                </div>
-                <div className={styles.twoButtons}>
-                    <button type='button'>Go back</button>
-                    <button type='submit'>Confirm</button>
-                </div>
+                <p>Total (per year)</p>
+                <p>$120/yr</p>
             </div>
-        </DefaultPage>
+            <div className={styles.twoButtons}>
+                <button type='button' onClick={navegateTo}>Go back</button>
+                <button type='submit'>Confirm</button>
+            </div>
+        </div>
+
     )
 }

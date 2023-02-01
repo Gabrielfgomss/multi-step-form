@@ -1,79 +1,73 @@
-import React from 'react'
-import { Formik, Form, Field } from 'formik';
+import React, { useState } from 'react'
+import { Formik, Form as FormikForm} from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Switch } from 'formik-material-ui'
-import InputData from 'Components/InputData';
-import styles from './formItem.module.scss'
+import FormControl from 'Components/FormControl';
+import './formItem.module.scss'
 // import * as Yup from 'yup'
 
-export default function FormInput({ title, paragraph, to, inputs, stylesInput }) {
+export default function Form({ to, props }) {
 
-    let location = useLocation();
+    const getLocation = useLocation();
 
+    let location = getLocation.pathname;
+    
     let navigate = useNavigate();
 
     const navigateTo = (event) => {
         event.preventDefault()
         navigate(-1)
     }
-    
-    const onSubmit = values => {
-        navigate(to);
+
+    const onSubmit = (values) => {
         console.log(values)
+        props = values;
+        navigate(to);
+        // let newValues = Object.entries(values)
+        // newValues.map((values) => {
+        //     const key = values[0];
+        //     const valor = values[1];
+        //     const saveData = async function () {
+        //         const conection = await fetch("http://localhost:3500/items", {
+        //             method: "POST",
+        //             headers: {
+        //                 "Content-type": "application/json"
+        //             },
+        //             body: JSON.stringify({
+        //                 [key]: valor
+        //             })
+        //         });
+        //         const convertion = await conection.json();
+        //         return convertion
+        //     }
+        //     return (
+        //         console.log(saveData())
+        //     )
+        // })
+        
     }
-    
-    const initialValues = {
-
-    }
-
-    inputs.map((input) => { return (initialValues[input.name] = '') })
-
     return (
         <Formik
-            initialValues={initialValues}
-            onSubmit={onSubmit}>
-            {props => {
-                console.log(props)
+            initialValues={{}}
+            onSubmit={onSubmit}
+            >
+            {(formik) => {
+                
                 return (
-                    <Form>
+                    <FormikForm
+                        >
+                        <FormControl
+                            props={formik}
+                            location={location}
+                        />
                         <section>
-                            <h1>{title}</h1>
-                            <p className={styles.subtitle}>{paragraph}</p>
-                            {inputs.map(input => (
-                                <div
-                                    key={input.label}
-                                    className={`
-                                    ${stylesInput.containerUser}
-                                    ${stylesInput.containerPlan}
-                                    ${stylesInput.containerAdds}`}>
-                                    <InputData
-                                        inputSelect={props.values.yearMonth}
-                                        inputValue={props.values[input.name]}
-                                        inputError={props.errors[input.name]}
-                                        inputTouched={props.touched[input.name]}
-                                        inputData={input}
-                                        styles={stylesInput}
-                                    />
-                                </div>)
-                            )}
-                            {location.pathname === '/plans' ?
-                                <div className={`${stylesInput.selectorValue}`}>
-                                    <p>Monthly</p>
-                                    {initialValues['yearMonth'] = false}
-                                    <Field label="yearMonth" name="yearMonth" component={Switch} type='checkbox' />
-                                    <p>Yearly</p>
-                                </div>
-                                : null
-                            }
-                        </section>
-                        <section>
-                            {location.pathname !== '/' ?
+                            {location === '/' ?
+                                null
+                                :
                                 <button onClick={navigateTo} type="button">Go Back</button>
-                                : null
                             }
                             <button type="submit">Next Step</button>
                         </section>
-                    </Form>)
+                    </FormikForm>)
             }}
         </Formik>
 

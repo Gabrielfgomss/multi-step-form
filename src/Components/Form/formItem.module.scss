@@ -2,43 +2,33 @@
 
 form {
     flex-basis: calc(940px - 274px);
-    justify-content: end;
     display: flex;
     flex-wrap: wrap;
 
     section:nth-child(1) {
-        margin: 15px;
-        padding: 25px;
-        background-color: #FFFFFF;
-        border-radius: 24px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        
-
+        flex-basis: 80%;
+        margin: auto;        
+        display: grid;
+        row-gap: 20px;
         h1 {
-            flex-basis: 100%;
+            grid-row: 1;
             font-size: 32px;
             font-family: $font-bold;
-            color: $dark-blue;
-            margin-bottom: 12px;
+            color: $marine-blue;
         }
 
         .subtitle {
-            flex-basis: 100%;
-            color: $grey;
+            grid-row: 2;
+            color: $cool-grey;
             font-family: $font-regular;
-            margin-bottom: 24px;
         }
-
     }
 
     section:nth-child(2n) {
-        height: 51px;
-        flex-basis: 100%;
+        flex-basis: 80%;
         align-self: end;
         text-align: end;
-        padding: 0px 40px;
+        margin: 0px auto;
         display: flex;
         justify-content: space-between;
 
@@ -48,9 +38,12 @@ form {
             font-size: 18px;
             padding: 15px 25px;
             border-radius: 10px;
-            background-color: $dark-blue;
+            background-color: $marine-blue;
             color: $white;
             border: none;
+            &:hover {
+                background-color: $purplish-blue;
+            }
         }
 
         button[type=button] {
@@ -59,10 +52,10 @@ form {
             font-size: 18px;
             border: none;
             background-color: white;
-            color: $grey;
+            color: $cool-grey;
 
             &:hover {
-                color: $dark-blue;
+                color: $marine-blue;
             }
         }
     }
@@ -70,13 +63,13 @@ form {
 
 @media (max-width: 375px) {
     form {
-        justify-content: end;
+        justify-content: flex-end;
         display: flex;
         height: 80vh;
         flex-wrap: wrap;
 
         section:nth-child(2n) {
-            background-color: #FFFFFF;
+            
             flex-basis: 100%;
             align-self: end;
             height: 51px;

@@ -2,68 +2,82 @@
 
 
 .containerAdds {
-    flex-basis: 100%;
+    display: grid;
+    grid-row: 3;
 
-    label {
+    div {
         position: relative;
 
-        .checkboxInner {
+        label {
             height: 90px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            border: 1px solid $white;
+            border: 1px solid $light-grey;
             box-sizing: border-box;
             border-radius: 10px;
-            padding: 15px;
-            padding-left: 100px;
+            padding: 15px 15px 15px 70px;
             cursor: pointer;
+
+            :nth-child(1) {
+                font-family: $font-bold;
+                font-size: 18px;
+                color: $marine-blue;
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            :nth-child(2) {
+                font-family: $font-regular;
+                font-size: 16px;
+                color: $cool-grey;
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            :nth-child(3) {
+                font-family: $font-medium;
+                font-size: 16px;
+                color: $purplish-blue;
+                grid-row: span 2;
+                text-align: end;
+            }
+            &:hover {
+                border: 1px solid $purplish-blue;
+            }
+    
         }
 
-        .title {
-            font-family: $font-bold;
-            font-size: 18px;
-            color: $dark-blue;
-            grid-column: 1;
-            grid-row: 1;
-        }
-
-        .subTitle {
-            font-family: $font-regular;
-            font-size: 16px;
-            color: $grey;
-            grid-column: 1;
-            grid-row: 2;
-        }
-
-        .valueMonth {
-            font-family: $font-medium;
-            font-size: 16px;
-            color: #A59CFF;
-            grid-row: span 2;
-            text-align: end;
-        }
-
-        input[type='checkbox'] {
+        input[type=checkbox] {
             position: absolute;
-            top: 36px;
-            z-index: 1;
-            opacity: 1;
-            -webkit-transform: scale(2);
-            width: 100px;
-
-            &:hover+.checkboxInner {
-                border: 1px solid $dark-blue;
-            }
-
-            &:checked+.checkboxInner {
-                background-color: #F8F9FE;
-                border: 1px solid $dark-blue;
-            }
+            width: 30px;
+            height: 90px;
+            margin: 0px 20px;
         }
+
+        input[type=checkbox]:checked + label {
+            background-color: $alabaster;
+            border: 1px solid $light-blue;
+        }
+    }
+
+    div:nth-child(2n) {
+        margin: 10px 0px;
     }
 }
 
-.containerAdds:nth-child(2n) {
-    margin: 12px 0px;
+@media (max-width: 375px) {
+    .containerAdds {
+        div {
+
+            label {
+                height: 100px;
+                grid-template-columns: 1fr 0fr;
+
+                .subTitle {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
 }

@@ -5,7 +5,8 @@
         "name": "plan",
         "type": "radio",
         "valueMonth": "$9/mo",
-        "valueYear": "$90/yr"
+        "valueYear": "$90/yr",
+        "id": "planArcade"
     },
     {
         "icon": "/assets/images/icon-advanced.svg",
@@ -13,7 +14,8 @@
         "name": "plan",
         "type": "radio",
         "valueMonth": "$12/mo",
-        "valueYear": "$120/yr"
+        "valueYear": "$120/yr",
+        "id": "planAdvanced"
     },
     {
         "icon": "/assets/images/icon-pro.svg",
@@ -21,6 +23,7 @@
         "name": "plan",
         "type": "radio",
         "valueMonth": "$15/mo",
-        "valueYear": "$150/yr"
+        "valueYear": "$150/yr",
+        "id": "planPro"
     }
 ]

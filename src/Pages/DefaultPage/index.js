@@ -1,14 +1,15 @@
 import Nav from 'Components/Nav'
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 import styles from './defaultPage.module.scss'
 
-export default function DefaultPage({ children }) {
+export default function DefaultPage() {
 
   return (
     <section className={styles.mainContainer}>
       <div className={styles.contentContainer}>
         <Nav />
-        {children}
+        <Outlet />
       </div>
     </section>
   )

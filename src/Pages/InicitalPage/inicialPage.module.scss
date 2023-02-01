@@ -1,58 +1,76 @@
 @import '../../styles/_variables.scss';
 
-.containerUser {
-    flex-basis: 100%;
-    margin-bottom: 15px;
 
-    label {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+form {
 
-        .textContainer {
-            display: flex;
-            order: 1;
-            flex-grow: 1;
+    section:nth-child(1) {
 
-            .title {
-                color: $dark-blue;
-                font-family: $font-regular;
-                margin: 10px 0px;
-                flex-grow: 1;
+        .container {
+            grid-row: 3;
+
+            div:nth-child(2) {
+                margin: 25px 0px;
             }
 
-            span {
-                text-align: end;
-                font-family: $font-bold;
-                color: red;
-                margin: 10px 0px;
+            .containerUser {
+                display: grid;
+                
+                label {
+                    color: $marine-blue;
+                    font-family: $font-regular;
+                }
 
+                span {
+                    text-align: end;
+                    font-family: $font-bold;
+                    color: hsl(354, 84%, 57%);
+                }
 
+                input[type=text] {
+                    grid-column: span 2;
+                    border: 1px solid $light-grey;
+                    color: $marine-blue;
+                    box-sizing: border-box;
+                    width: 100%;
+                    padding: 15px;
+                    border-radius: 10px;
+                    margin-top: 10px;
+
+                    &:hover {
+                        cursor: pointer;
+                        border: 1px solid $purplish-blue;
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                
+                .error {
+                    grid-column: span 2;
+                    border: 1px solid red;
+                    color: hsl(213deg, 96%, 18%);
+                    box-sizing: border-box;
+                    width: 100%;
+                    padding: 15px;
+                    border-radius: 10px;
+                    margin-top: 10px;
+                }
             }
         }
+    }
+}
 
-
-        input[type='text'] {
-            order: 2;
-            border: 1px solid $white;
-            color: $dark-blue;
-            box-sizing: border-box;
-            width: 100%;
-            padding: 15px;
-            border-radius: 10px;
-
-            &:hover {
-                cursor: pointer;
-                border: 1px solid $dark-blue;
-            }
-
-            &:focus {
-                outline: none;
-            }
+@media (max-width: 375px) {
+    form {
+        section:nth-child(1) {
+            background-color: #FFFFFF;
+            border-radius: 24px;
+            padding: 30px 20px;
         }
-
-        .error {
-            border: 1px solid red;
+        section:nth-child(2) {
+            background-color: #FFFFFF;
+            padding: 0px 17.5px;
         }
     }
 }

@@ -1,18 +1,19 @@
 @import '../../styles/_variables.scss';
 
 
-.containerPlan {
+.container {
+    grid-row: 3;
+    display: grid;
+    column-gap: 15px;
 
-    label {
+    .containerPlan {
+        grid-row: 1;
 
-        .checkboxInner {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
+        label {
+            display: grid;
             width: 155px;
             min-height: 84px;
-            position: relative;
-            border: 1px solid $white;
+            border: 1px solid $light-grey;
             box-sizing: border-box;
             border-radius: 10px;
             padding: 15px;
@@ -20,75 +21,90 @@
 
             img {
                 margin-bottom: 30px;
-                order: 1;
                 cursor: pointer;
                 width: 50px;
                 height: 50px;
             }
 
-            .title {
-                order: 2;
+            :nth-child(2) {
                 font-size: 18px;
                 font-family: $font-medium;
-                color: $dark-blue;
+                color: $marine-blue;
+            }
+
+            :nth-child(3) {
+                color: $cool-grey;
+                font-size: 16px;
+                font-family: $font-regular;
+                margin: 10px 0px;
+            }
+
+            :nth-child(4) {
+                color: $marine-blue;
+                font-size: 14px;
+                font-family: $font-regular;
+            }
+
+            &:hover {
+                border: 1px solid $purplish-blue;
             }
 
         }
 
         input[type=radio] {
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 1;
-            opacity: 0;
-
-            &:hover+.checkboxInner {
-                border: 1px solid $dark-blue;
-            }
-
-            &:checked+.checkboxInner {
-                background-color: #F8F9FE;
-                border: 1px solid $dark-blue;
-            }
+            appearance: none;
         }
 
+        input[type=radio]:checked+label {
+            background-color: $alabaster;
+            border: 1px solid $purplish-blue;
+
+        }
     }
 
-    
-}
+    div:nth-child(4n) {
+        grid-column: 1 / span 3;
+        margin: 42px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $magnolia;
 
-.selectorValue {
-    margin: 42px 0px;
-    display: flex;
-    flex-basis: 100%;
-    align-items: center;
-    justify-content: center;
-    padding: 5px 0px;
-    background-color: #F8F9FE;
-
-    p {
-        font-family: $font-medium;
-        font-size: 16px;
-        color: $dark-blue;
+        p {
+            font-family: $font-medium;
+            font-size: 16px;
+            color: $marine-blue;
+        }
     }
 }
 
 @media (max-width: 375px) {
-    .containerPlan {
-        label {
-            .checkboxInner {
-                flex-direction: row;
+    .container {
+        display: block;
+
+        .containerPlan {
+
+            label {
+
+                display: grid;
+                grid-template-columns: 0fr 1fr;
                 width: 300px;
+                column-gap: 30px;
+
                 img {
+                    grid-row: span 3;
                     margin-bottom: 0px;
                 }
+
             }
-            .checkboxInner:nth-child(2) {
-                margin: 15px 0px;
-            }
-            
+
+        }
+
+        div:nth-child(2) {
+            margin: 10px 0px;
         }
     }
+
     .selectorValue {
         margin: 0px;
     }
