@@ -16,7 +16,8 @@ export default function Steps({ icon, styles }) {
           fontSize: '16px',
           width: 30,
           height: 30,
-          fontWeight: 800
+          fontWeight: 800,
+          purpose: 'any maskable'
         }}>
         {icon.id}
       </Avatar>

@@ -1,75 +1,52 @@
-import React, { useState } from 'react'
-import { Formik, Form as FormikForm} from 'formik';
-import { useLocation, useNavigate } from 'react-router-dom';
-import FormControl from 'Components/FormControl';
+import React, { useEffect } from 'react'
+import { Formik, Form as FormikForm, useFormikContext} from 'formik';
+import { Link, useNavigate } from 'react-router-dom';
 import './formItem.module.scss'
 // import * as Yup from 'yup'
 
-export default function Form({ to, props }) {
+export default function Form({location, children, to, savedData}) {
 
-    const getLocation = useLocation();
-
-    let location = getLocation.pathname;
-    
     let navigate = useNavigate();
 
-    const navigateTo = (event) => {
-        event.preventDefault()
-        navigate(-1)
-    }
-
     const onSubmit = (values) => {
-        console.log(values)
-        props = values;
+        console.log(Object.values(values)[0]);
+        if(location !== '/summary') {
+        savedData(values)
         navigate(to);
-        // let newValues = Object.entries(values)
-        // newValues.map((values) => {
-        //     const key = values[0];
-        //     const valor = values[1];
-        //     const saveData = async function () {
-        //         const conection = await fetch("http://localhost:3500/items", {
-        //             method: "POST",
-        //             headers: {
-        //                 "Content-type": "application/json"
-        //             },
-        //             body: JSON.stringify({
-        //                 [key]: valor
-        //             })
-        //         });
-        //         const convertion = await conection.json();
-        //         return convertion
-        //     }
-        //     return (
-        //         console.log(saveData())
-        //     )
-        // })
-        
+        } else if (location === '/summary' && Object.values(values)[4] !== '') {
+            navigate(to)
+        }
     }
+    
     return (
         <Formik
-            initialValues={{}}
+            initialValues={{
+                name: '',
+                email: '',
+                phoneNumber: '',
+                yearMonth: '',
+                plan: '',
+                adds: ''
+            }}
             onSubmit={onSubmit}
+            
             >
             {(formik) => {
-                
+                console.log(formik)
                 return (
                     <FormikForm
                         >
-                        <FormControl
-                            props={formik}
-                            location={location}
-                        />
+                        {children}
                         <section>
                             {location === '/' ?
                                 null
                                 :
-                                <button onClick={navigateTo} type="button">Go Back</button>
+                                <Link to={-1}>Go Back</Link>
                             }
-                            <button type="submit">Next Step</button>
+                            <button type="submit">{location === '/summary' ? 'Confirm':'Next Step'}</button>
                         </section>
                     </FormikForm>)
             }}
         </Formik>
-
     )
 }

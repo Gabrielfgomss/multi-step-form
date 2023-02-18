@@ -1,11 +1,24 @@
-import { Field } from 'formik';
-import React from 'react'
+import { Field, useFormikContext } from 'formik';
+import React, { useEffect, useState } from 'react'
 import styles from './addOnsPage.module.scss'
 import inputs from './inputs.json'
 
-export default function AddOnsPage({ props }) {
+export default function AddOnsPage() {
   
-  console.log(props.values.yearMonth)
+  const { values, resetForm } = useFormikContext();
+
+  useEffect(() => {
+
+    resetForm({values: {
+      name: values.name,
+      email: values.email,
+      phoneNumber: values.phoneNumber,
+      plan: values.plan,
+      yearMonth: values.yearMonth,
+      adds: ''
+    }})
+
+  },[values.yearMonth]);
 
   return (
     <section>
@@ -14,27 +27,29 @@ export default function AddOnsPage({ props }) {
       <p>Add-ons help enhance your gaming experience.</p>
 
       <div className={styles.containerAdds}>
-      {inputs.map((input) => {
-        const { name, type, label, text, valueMonth, valueYear } = input;
-        return (
-          <div
-            key={name}>
-            <Field
-              type={type}
-              name={name}
-              id={label}
-              value={JSON.stringify({ [label]: valueYear })}
-            />
-            <label htmlFor={label}>
-              <p>{label}</p>
-              <p>{text}</p>
-              <p>{props.values.yearMonth === true ? valueMonth:valueYear}</p>
-            </label>
-          </div>
+        {inputs.map((input, index) => {
+
+          const { type, name, label, valueMonth, valueYear, text } = input;
+
+          return (
+            <div key={index} >
+              <Field 
+              id={name}
+              name='adds'
+              value={values.yearMonth === true ? JSON.stringify(valueMonth) : JSON.stringify(valueYear)} 
+              type={type} 
+              />
+              <label htmlFor={name}>
+                <p>{label}</p>
+                <p>{text}</p>
+                <p>{values.yearMonth !== true && values.yearMonth !== undefined ? valueYear.value : valueMonth.value}</p>
+              </label>
+            </div>)
+          }
         )
-      })}
+      }
       </div>
-      
-    </section>  
+
+    </section>
   )
 }

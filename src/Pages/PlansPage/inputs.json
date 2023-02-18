@@ -4,8 +4,14 @@
         "label": "Arcade",
         "name": "plan",
         "type": "radio",
-        "valueMonth": "$9/mo",
-        "valueYear": "$90/yr",
+        "valueMonth": {
+            "title": "Arcade(Monthly)",
+            "value": "$9/mo"
+        },
+        "valueYear": {
+            "title": "Arcade(Yearly)",
+            "value": "90/yr"
+        },
         "id": "planArcade"
     },
     {
@@ -13,8 +19,14 @@
         "label": "Advanced",
         "name": "plan",
         "type": "radio",
-        "valueMonth": "$12/mo",
-        "valueYear": "$120/yr",
+        "valueMonth": {
+            "title": "Advanced(Monthly)",
+            "value": "$12/mo"
+        },
+        "valueYear": {
+            "title": "Advanced(Yearly)",
+            "value": "120/yr"
+        },
         "id": "planAdvanced"
     },
     {
@@ -22,8 +34,14 @@
         "label": "Pro",
         "name": "plan",
         "type": "radio",
-        "valueMonth": "$15/mo",
-        "valueYear": "$150/yr",
+        "valueMonth": {
+            "title": "Pro(Monthly)",
+            "value": "$15/mo"
+        },
+        "valueYear": {
+            "title": "Pro(Yearly)",
+            "value": "$150/yr"
+        },
         "id": "planPro"
     }
 ]

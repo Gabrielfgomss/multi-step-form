@@ -17,14 +17,14 @@ form {
             color: $marine-blue;
         }
 
-        .subtitle {
+        p {
             grid-row: 2;
             color: $cool-grey;
             font-family: $font-regular;
         }
     }
 
-    section:nth-child(2n) {
+    section:last-child {
         flex-basis: 80%;
         align-self: end;
         text-align: end;
@@ -46,13 +46,14 @@ form {
             }
         }
 
-        button[type=button] {
+        a {
             font-family: $font-medium;
             cursor: pointer;
             font-size: 18px;
             border: none;
             background-color: white;
             color: $cool-grey;
+            text-decoration: none;
 
             &:hover {
                 color: $marine-blue;

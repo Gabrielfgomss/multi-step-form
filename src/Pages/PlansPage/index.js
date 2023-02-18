@@ -1,24 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './plansPage.module.scss';
 import inputs from './inputs.json'
-import { Field } from 'formik';
+import { Field, useFormikContext } from 'formik';
 import Switch from '@mui/material/Switch';
 
 
-export default function PlanPage({ props }) {
+export default function PlanPage() {
 
-    const { initialValues, values } = props;
+    const [checked, setChecked] = useState(true);
+    
+    const handleSwitchChange = (event) => {
+        setChecked(event.target.checked)
+    }
     
     return (
         <section>
             <h1>Select your plan</h1>
             <p>You have the option of monthly or yearly billing.</p>
+
             <div className={styles.container}>
                 {inputs.map((input) => {
-
+                    
                     const { type, name, label, icon, id, valueMonth, valueYear } = input;
-                    initialValues['yearMonth'] = true;
-                    initialValues[name] = '';
+                    
                     return (
                         <div
                             key={id}
@@ -27,39 +31,45 @@ export default function PlanPage({ props }) {
                                 name={name}
                                 type={type}
                                 id={id}
-                                value={values.yearMonth ?
-                                    JSON.stringify({ [label]: valueMonth })
+                                value={checked ?
+                                    JSON.stringify(valueMonth)
                                     :
-                                    JSON.stringify({ [label]: valueYear })}
+                                    JSON.stringify(valueYear)}
                             />
                             <label htmlFor={id}>
                                 <img src={icon} alt={name} />
                                 <p>{label}</p>
-                                {values.yearMonth ?
-                                    <p>{valueMonth}</p>
+                                {checked ?
+                                    <p>{valueMonth.value}</p>
                                     :
                                     <>
-                                        <p>{valueYear}</p>
+                                        <p>{valueYear.value}</p>
                                         <p>2 months free</p>
                                     </>}
                             </label>
                         </div>
-                    )}
+                    )
+                }
                 )}
                 <div>
-                    <p>Monthly</p>
-                    <Field 
-                        name='yearMonth'
-                        type='checkbox'
-                    >
-                        {({field, form, meta}) => {
+                    <p style={{color: checked ? 'hsl(213, 96%, 18%)': 'hsl(231, 11%, 63%)'}}>Monthly</p>
+                    <Field>
+                        {(props) => {
+                            
+                            props.field.value = checked
+                            props.form.values.yearMonth = props.field.value
                             return (
-                                <Switch 
-                                    {...field}/>
+                                <Switch
+                                    {...props.field}
+                                    {...props.form.values.yearMonth}
+                                    id='yearMonth'
+                                    checked={checked}
+                                    onChange={handleSwitchChange}
+                                    />
                             )
                         }}
                     </Field>
-                    <p>Yearly</p>
+                    <p style={{color: checked ? 'hsl(231, 11%, 63%)': 'hsl(213, 96%, 18%)'}}>Yearly</p>
                 </div>
             </div>
         </section>
