@@ -5,6 +5,7 @@
     background-repeat: no-repeat;
     background-size: 274px 568px;
     flex-basis: 274px;
+
     .container {
         padding: 32px;
         display: flex;
@@ -12,6 +13,7 @@
         font-family: $font-regular;
         color: $white;
         text-transform: uppercase;
+
         .itenContainer {
             display: flex;
             margin-bottom: 32px;
@@ -22,17 +24,19 @@
                 font-size: 25px;
                 color: $white;
                 text-decoration: none;
-                
+
             }
 
             .description {
                 p {
                     margin-bottom: 5px;
                 }
+
                 :first-child {
                     color: $cool-grey;
                     font-size: 14px;
                 }
+
                 :last-child {
                     font-family: $font-bold;
                     font-size: 16px;
@@ -41,15 +45,21 @@
         }
     }
 }
-@media (max-width: 375px) {
+
+@media screen and (max-width: 470px) {
     .sideBar {
-        background-image: none;
+        background-image: url('../../../public/assets/images/bg-sidebar-mobile.svg');
+        height: 172px;
+        width: 100vw;
+        background-size: cover;
         .container {
             justify-content: space-evenly;
             flex-direction: row;
             padding: 25px 0px;
+
             .itenContainer {
                 margin: 0px;
+
                 .description {
                     display: none;
                 }

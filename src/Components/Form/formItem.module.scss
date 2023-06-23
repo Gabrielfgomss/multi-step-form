@@ -7,9 +7,10 @@ form {
 
     section:nth-child(1) {
         flex-basis: 80%;
-        margin: auto;        
+        margin: auto;
         display: grid;
         row-gap: 20px;
+
         h1 {
             grid-row: 1;
             font-size: 32px;
@@ -41,6 +42,7 @@ form {
             background-color: $marine-blue;
             color: $white;
             border: none;
+
             &:hover {
                 background-color: $purplish-blue;
             }
@@ -62,15 +64,22 @@ form {
     }
 }
 
-@media (max-width: 375px) {
+@media screen and (max-width: 470px) {
     form {
         justify-content: flex-end;
         display: flex;
         height: 80vh;
         flex-wrap: wrap;
 
+        section:nth-child(1) {
+            position: absolute;
+            width: 70vw;
+            left: 10vw;
+            top: 10vh;
+        }
+
         section:nth-child(2n) {
-            
+
             flex-basis: 100%;
             align-self: end;
             height: 51px;
